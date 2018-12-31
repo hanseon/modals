@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="darkolivegreen_screen.css">
+    <title>Modal Image</title>
+    <style>
+        #columns{
+            column-width: 320px;
+            column-gap: 15px;
+	        /* border: 5px solid gold; */
+        }
+        #columns figure{
+            display: inline-block;
+            /* inline-block으로 지정하지 않으면 figcaption의 문자가 이미지와 분리된다. */
+            /* border: 1px solid rgba(255, 215, 0, 0.5); */
+            border-radius: 10px;
+            margin: 0;
+            margin-bottom: 15px;
+            padding: 10px;
+            box-shadow: 8px 8px 5px rgb(0, 0, 0, 0.5);
+            background-color: dimgray;
+        }
+        #columns figure img{
+            cursor: pointer;
+            width: 100%;
+            /* 원래의 이미지는 폭은 500픽셀 이상으로 img태그에 width값을 주지 않으면 이미지가 서로 겹치게 된다. */
+        }
+        #columns figure figcaption{
+            border-top: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 10px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        @media(max-width: 400px){
+            #columns{
+                column-width: 120px;
+                /* 모바일 환경을 위한 코드 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="w3-container">
+        <h2>W3.CSS Modal Image</h2>
+        <p>Click on the image to display it in full size:</p>
+      
+        <div id="columns">
+            <figure id="f1">
+                <img src="img_car.jpg" onclick="showModal(this)">
+                <figcaption>my car</figcaption>
+            </figure>
+            <figure>
+                <img src="img_mountains.jpg" onclick="showModal(this)">
+                <figcaption>mountain</figcaption>
+            </figure>
+            <figure>
+                <img src="img_snowtops.jpg" onclick="showModal(this)">
+                <figcaption>snowtops</figcaption>
+            </figure>
+            <figure>
+                <img src="santorino2.jpg" onclick="showModal(this)">
+                <figcaption>santorino</figcaption>
+            </figure>
+            <figure>
+                <img src="ryan.jpg" onclick="showModal(this)">
+                <figcaption>santorino</figcaption>
+            </figure>
+            
+        </div>
+              
+        <div id="modal01" class="w3-modal" onclick="hideModal(this)">
+          <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+          <div class="w3-modal-content w3-animate-zoom">
+            <img id="modalImg" style="width:100%">
+          </div>
+        </div>
+    </div>
+    <script>
+        function showModal(element) {
+            document.getElementById("modalImg").src = element.src;
+            document.getElementById("modal01").style.display = "block";
+        }
+        
+        function hideModal(){
+            document.getElementById("modal01").style.display = "none";
+        }
+
+        /* //figure의 id가 f1인 태크의 차일드노드들을 찾고
+        var ndList = document.getElementById('f1').childNodes;
+        //그 차일드노드 요소 중 img태그의 속성값인 src의 값을 얻는다.
+        var setUrl = "";
+        for(var i = 0; i < ndList.length; i++){
+            if('IMG' == ndList[i].nodeName){
+                setUrl = ndList[i].getAttribute('src');
+                // 현재 마우스클릭된 figure의 자식태그인 img태그의 src속성 값 url을 setUrl에 넘김.
+            }
+        }
+        //모달의 img태그의 src속성값으로 setUrl의 값으로 셋팅.
+        document.getElementById('showImg').setAttribute('src', setUrl);
+        //figure 이벤트 등록을 위한 변수
+        var fgClickEvent = document.getElementById('f1');
+        //modal 이벤트 등록을 위한 변수
+        var modalClickEvent = document.getElementById('modal01');
+          
+        //figure 클릭 이벤트 등록(클릭 시 modal 보이도록)
+        fgClickEvent.addEventListener("click", showModal, false);
+        //modal 클릭 이벤트 등록 (클릭 시 modal 숨김으로)
+        modalClickEvent.addEventListener("click", hideModal, false);
+        
+        function showModal(){
+            modalClickEvent.style.display = "block"; 
+        }
+       
+        function hideModal(){
+            modalClickEvent.style.display = "none";
+        } */
+    </script>
+</body>
+</html>

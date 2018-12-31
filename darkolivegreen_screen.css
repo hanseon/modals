@@ -1,0 +1,14 @@
+/* 폰트는 구글의 web_font인 "나눔명조", 문자색은 "흰색",바탕색은 "dark olive green" */
+
+@import url('https://fonts.googleapis.com/css?family=Nanum+Myeongjo');
+
+body {
+    background-color: darkolivegreen;
+    color: white;
+    /* font-family: "Times New Roman", serif; */
+    font-family: 'Nanum Myeongjo', serif;
+}
+
+a {
+    color: inherit;
+}
